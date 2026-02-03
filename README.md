@@ -19,10 +19,12 @@ When using Gluetun with ProtonVPN (or other providers with port forwarding), the
 services:
   portsync:
     image: ghcr.io/lasardinetechnologique/gluetun-qbittorrent-portsync
-    network_mode: "service:gluetun"
+    depends_on:
+      - gluetun
     volumes:
       - gluetun_data:/tmp/gluetun:ro
     environment:
+      - QBT_HOST=gluetun
       - QBT_USERNAME=admin
       - QBT_PASSWORD=adminadmin
 ```
@@ -33,7 +35,7 @@ See [docker-compose.yml](docker-compose.yml) for a complete example with Gluetun
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `QBT_HOST` | `localhost` | qBittorrent host |
+| `QBT_HOST` | `localhost` | qBittorrent host (use service name, e.g. `gluetun`) |
 | `QBT_PORT` | `8080` | qBittorrent WebUI port |
 | `QBT_PROTOCOL` | `http` | Protocol (`http` or `https`) |
 | `QBT_USERNAME` | - | qBittorrent username |

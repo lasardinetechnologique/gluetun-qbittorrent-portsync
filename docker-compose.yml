@@ -36,18 +36,16 @@ services:
     # Or use a pre-built image:
     # image: ghcr.io/lasardinetechnologique/gluetun-qbittorrent-portsync
     container_name: portsync
-    network_mode: "service:gluetun"
     depends_on:
       - gluetun
       - qbittorrent
     volumes:
       - gluetun_data:/tmp/gluetun:ro
     environment:
-      - QBT_HOST=localhost
+      - QBT_HOST=gluetun
       - QBT_PORT=8080
       - QBT_USERNAME=admin
       - QBT_PASSWORD=adminadmin
-      - PORT_FILE=/tmp/gluetun/forwarded_port
       - RUN_AT_START=true
       - FILE_WATCH=true
       - LOG_LEVEL=info
