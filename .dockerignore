@@ -1,0 +1,27 @@
+# Git
+.git
+.gitignore
+
+# CI/CD
+.github
+
+# Documentation
+README.md
+LICENSE
+
+# IDE
+.idea
+.vscode
+*.swp
+
+# Local
+.env
+.env.local
+*.log
+
+# Docker
+docker-compose.yml
+.dockerignore
+
+# Claude
+.claude
