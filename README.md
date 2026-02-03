@@ -27,6 +27,8 @@ services:
       - QBT_PASSWORD=adminadmin
 ```
 
+See [docker-compose.yml](docker-compose.yml) for a complete example with Gluetun and qBittorrent.
+
 ## Environment Variables
 
 | Variable | Default | Description |
